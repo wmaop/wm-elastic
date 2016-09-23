@@ -1,0 +1,21 @@
+﻿{
+    "template": "system-*",
+    "order": 10,
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas" : 1
+    },
+    "mappings": {
+        "parsingFailure" : {
+            "dynamic" : "false",
+            "_all": {
+                "enabled": false
+            },
+            "properties" : {
+                "@timestamp" : {"type" : "date"}
+            }
+        }        
+    },
+    "aliases": {
+    }
+}

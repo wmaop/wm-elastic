@@ -1,0 +1,18 @@
+{
+    "template": "enterprisedefault-*",
+    "order": 10,
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas" : 1
+    },
+    "mappings": {
+        "parsingFailure" : {
+            "dynamic" : "true",
+            "properties" : {
+                "@timestamp" : {"type" : "date"}
+            }
+        }        
+    },
+    "aliases": {
+    }
+}

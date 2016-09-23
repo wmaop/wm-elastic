@@ -1,0 +1,18 @@
+﻿# wM IS FileBeat configuration
+filebeat:
+  prospectors:
+    -
+      paths:
+        - "G:/SoftwareAG99/UniversalMessaging/server/umserver/data/nirvana.log"
+      multiline:
+        pattern: ^\[
+        match: after
+        negate: true
+      document_type: wmumnirvana
+      fields:
+        applicationVersion: "9.9"
+output:
+  logstash:
+    enabled: true
+    hosts:
+     - localhost:18000

@@ -1,0 +1,42 @@
+﻿# wM IS FileBeat configuration
+filebeat:
+  prospectors:
+    -
+      paths:
+        - "G:/SoftwareAG99/IntegrationServer/instances/default/logs/server.log"
+      multiline:
+        pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}
+        match: after 
+        negate: true
+      document_type: wmisserver
+      fields_under_root: true
+      fields:
+        applicationVersion: "9.9"
+    -
+      paths:
+        - "G:/SoftwareAG99/profiles/IS_default/logs/sag-osgi.log"
+      multiline:
+        pattern: ^\[
+        match: after
+        negate: true
+      document_type: wmisosgi
+      fields_under_root: true
+      fields:
+        applicationVersion: "9.9"
+    -
+      paths:
+        - "G:/SoftwareAG99/IntegrationServer/instances/default/logs/stats.log"
+      multiline:
+        pattern: ^[0-9]{4}
+        match: after
+        negate: true
+      exclude_lines: ["^.{24}--", "^.{24}Total"]
+      document_type: wmisstats
+      fields_under_root: true
+      fields:
+        applicationVersion: "9.9"
+output:
+  logstash:
+    enabled: true
+    hosts:
+     - localhost:18000

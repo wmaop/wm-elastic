@@ -1,0 +1,48 @@
+﻿{
+    "template": "webmethods-*",
+    "order": 10,
+    "settings": {
+        "number_of_shards": 1,
+        "number_of_replicas" : 1
+    },
+    "mappings": {
+        "_default_": {
+            "dynamic" : "false",
+            "_all": { "enabled": false },
+            "properties" : {
+                "@timestamp" : {"type" : "date"},
+                "deviceHostName" : {"type" : "string", "index":"not_analyzed"},
+                "eventMessage" : {"type" : "string", "index":"analyzed"},
+                "eventSource" : {"type" : "string", "index":"not_analyzed"},
+                "reason" : {"type" : "string", "index":"not_analyzed"},
+                "severity" : {"type" : "string", "index":"not_analyzed"},
+                "type" : {"type" : "string", "index":"not_analyzed"},
+                "applicationVersion" : {"type" : "string", "index":"not_analyzed"}
+            }
+        },
+        "wmisstats" : {
+            "properties" : {
+                "statsJvmFreeMem" : {"type" : "long", "index":"not_analyzed"},
+                "statsJvmTotalMem" : {"type" : "long", "index":"not_analyzed"},
+                "statsThreads" : {"type" : "integer", "index":"not_analyzed"},
+                "statsThreadsMax" : {"type" : "integer", "index":"not_analyzed"},
+                "statsSessions" : {"type" : "long", "index":"not_analyzed"},
+                "statsSessionsMax" : {"type" : "long", "index":"not_analyzed"},
+                "statsSessionsAverage" : {"type" : "long", "index":"not_analyzed"},
+                "statsRequests" : {"type" : "long", "index":"not_analyzed"},
+                "statsRequestsMax" : {"type" : "long", "index":"not_analyzed"},
+                "statsRequestsAverage" : {"type" : "long", "index":"not_analyzed"},
+                "statsRequestStart" : {"type" : "long", "index":"not_analyzed"},
+                "statsRequestEnd" : {"type" : "long", "index":"not_analyzed"}
+            }
+        },
+        "wmisserver" : {
+        },
+        "wmisosgi" : {
+        },
+        "wmisdberror" : {
+        }
+    },
+    "aliases": {
+    }
+}
