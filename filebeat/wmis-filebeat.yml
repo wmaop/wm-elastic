@@ -1,4 +1,6 @@
 ﻿# wM IS FileBeat configuration
+# Change the path to suit the location of your SoftwareAG directory home
+# and update teh applicationVersion to match (Or remove it if not required)
 filebeat:
   prospectors:
     -

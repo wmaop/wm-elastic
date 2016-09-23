@@ -1,16 +1,18 @@
-﻿# wM IS FileBeat configuration
+﻿# wM MWS FileBeat configuration
+# Change the path to suit the location of your SoftwareAG directory home
+# and update teh applicationVersion to match (Or remove it if not required)
 filebeat:
   prospectors:
     -
       paths:
-        - "D:/SoftwareAG910/MWS/server/default/logs/_full_.log"
+        - "G:/SoftwareAG99/MWS/server/default/logs/_full_.log"
       multiline:
         pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}
         match: after
         negate: true
       document_type: wmmwsfull
       fields:
-        applicationVersion: "9.10"
+        applicationVersion: "9.9"
 output:
   logstash:
     enabled: true
