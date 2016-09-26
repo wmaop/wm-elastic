@@ -1,4 +1,4 @@
-﻿# wM IS FileBeat configuration
+﻿# wM FileBeat configuration for all products in one, such as a test demo deployment
 # Change the path to suit the location of your SoftwareAG directory home
 # and update the applicationVersion to match (Or remove it if not required)
 filebeat:
@@ -35,6 +35,26 @@ filebeat:
       exclude_lines: ["^.{24}--", "^.{24}Total"]
       document_type: wmisstats
       fields_under_root: true
+      fields:
+        applicationVersion: "9.9"
+    -
+      paths:
+        - "/SoftwareAG/MWS/server/default/logs/_full_.log"
+      multiline:
+        pattern: ^[0-9]{4}-[0-9]{2}-[0-9]{2}
+        match: after
+        negate: true
+      document_type: wmmwsfull
+      fields:
+        applicationVersion: "9.10"
+    -
+      paths:
+        - "/SoftwareAG/UniversalMessaging/server/umserver/data/nirvana.log"
+      multiline:
+        pattern: ^\[
+        match: after
+        negate: true
+      document_type: wmumnirvana
       fields:
         applicationVersion: "9.10"
 output:

@@ -1,18 +1,18 @@
 ﻿# Universal Messaging FileBeat configuration
 # Change the path to suit the location of your SoftwareAG directory home
-# and update teh applicationVersion to match (Or remove it if not required)
+# and update thw applicationVersion to match (Or remove it if not required)
 filebeat:
   prospectors:
     -
       paths:
-        - "G:/SoftwareAG99/UniversalMessaging/server/umserver/data/nirvana.log"
+        - "/SoftwareAG/UniversalMessaging/server/umserver/data/nirvana.log"
       multiline:
         pattern: ^\[
         match: after
         negate: true
       document_type: wmumnirvana
       fields:
-        applicationVersion: "9.9"
+        applicationVersion: "9.10"
 output:
   logstash:
     enabled: true
