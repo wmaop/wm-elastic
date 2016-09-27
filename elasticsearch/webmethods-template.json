@@ -11,9 +11,11 @@
             "_all": { "enabled": false },
             "properties" : {
                 "@timestamp" : {"type" : "date"},
+                "eventSource" : {"type" : "string", "index":"not_analyzed"},
+                "processName" : {"type" : "string", "index":"not_analyzed"},
                 "deviceHostName" : {"type" : "string", "index":"not_analyzed"},
                 "eventMessage" : {"type" : "string", "index":"analyzed"},
-                "eventSource" : {"type" : "string", "index":"not_analyzed"},
+                "eventCategory" : {"type" : "string", "index":"not_analyzed"},
                 "reason" : {"type" : "string", "index":"not_analyzed"},
                 "severity" : {"type" : "string", "index":"not_analyzed"},
                 "type" : {"type" : "string", "index":"not_analyzed"},
